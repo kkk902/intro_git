@@ -1,0 +1,7 @@
+Enumeration<ZipEntry>entries = zip.getEntries(); 
+while (entries.hasMoreElements()) { 
+    ZipEntry e = entries.nextElement(); 
+    File f = new File(destinationDir, e.getName()); 
+    InputStream input = zip.getInputStream(e); 
+    IOUtils.copy(input, write(f)); 
+}
